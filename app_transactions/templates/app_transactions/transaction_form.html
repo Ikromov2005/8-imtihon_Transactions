@@ -1,0 +1,34 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Tranzaksiya yaratish/tahrirlash{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Tranzaksiya yaratish va tahrirlash</div>
+                <div class="card-body">
+                    <form method="post" class="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.amount.label_tag }}
+                            {{ form.amount }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.type.label_tag }}
+                            {{ form.type }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.method.label_tag }}
+                            {{ form.method }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </form>
+                    <a href="{% url 'home' %}" class="btn btn-secondary mt-2">Bosh sahifaga qaytish↩️</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
